@@ -1,0 +1,103 @@
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+#wrapper {
+    background-color: var(--bg-color-light);
+    margin-top: 0px;
+    margin-bottom: 80px;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100vw;
+    height: 82vh;
+}
+body.dark-theme #wrapper {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s;
+}
+.inputDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+}
+.input {
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color-light);
+    padding: 15px;
+    font-size: 1rem;
+    caret-color: var(--text-color-light);
+    filter: drop-shadow(var(--shadow-light));
+    margin-bottom: 10px;
+}
+body.dark-theme .input {
+    background-color: black;
+    border-color: var(--border-color-dark);
+    caret-color: var(--text-color-dark);
+    filter: drop-shadow(var(--shadow-dark));
+    transition: background-color 0.3s;
+}
+.submit-button {
+    width: 300px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    filter: drop-shadow(var(--shadow-light));
+    margin-top: 10px;
+    padding: .7rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+body.dark-theme #submit {
+    background-color: var(--cardbg-color-dark);
+    filter: drop-shadow(var(--shadow-dark));
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.submit-button:active {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+}
+body.dark-theme .submit-button:active {
+    background-color: black;
+    color: var(--text-color-dark);
+}
+.submit-button:hover {
+    cursor: pointer;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+}
+a {
+    text-decoration: none;
+    color: var(--text-color-light);
+}
+body.dark-theme a {
+    color: var(--text-color-dark);
+}
+a:hover {
+    color: #007bff;
+}

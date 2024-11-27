@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.landing-page {
+    max-width: 800px;
+    margin: 50px auto;
+    margin-top: 0;
+    padding: 20px;
+    padding-top: 70px;
+    text-align: center;
+    background-color: var(--card-bg-color-light);
+    box-shadow: 0 4px 8px var(--shadow-light);
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .landing-page {
+    background-color: var(--card-bg-color-dark);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+}
+
+.landing-page h1 {
+    font-size: 2.5em;
+    color: var(--text-color-light);
+    margin-bottom: 10px;
+}
+
+body.dark-theme .landing-page h1 {
+    color: var(--text-color-dark);
+}
+
+.landing-page h2 {
+    font-size: 1.8em;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+}
+
+body.dark-theme .landing-page h2 {
+    color: var(--text-color-dark);
+}
+
+.info-text {
+    font-size: 1em;
+    margin: 15px 0;
+    color: var(--text-color-light);
+}
+
+body.dark-theme .info-text {
+    color: var(--text-color-dark);
+}
+
+.image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-light);
+    transition: box-shadow 0.3s;
+}
+
+body.dark-theme .image-container img {
+    box-shadow: 0 2px 4px var(--shadow-dark);
+}
+
+@media (max-width: 768px) {
+    .landing-page {
+        padding: 15px;
+    }
+
+    .landing-page h1 {
+        font-size: 2em;
+    }
+
+    .landing-page h2 {
+        font-size: 1.5em;
+    }
+
+    .info-text {
+        font-size: 0.9em;
+    }
+}

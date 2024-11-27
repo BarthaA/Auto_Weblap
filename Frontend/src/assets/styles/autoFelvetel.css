@@ -1,0 +1,98 @@
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+.wrapper {
+    background-color: var(--bg-color-light);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 80px;
+    margin-bottom: 35px;
+    padding-bottom: 6vh;
+}
+body.dark-theme .wrapper {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s;
+}
+h1 {
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+body.dark-theme h1 {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 10px;
+    filter: drop-shadow(var(--shadow-light));
+}
+input {
+    width: 400px;
+    padding: 15px;
+    background-color: var(--cardbg-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 10px;
+    caret-color: var(--text-color-light);
+}
+body.dark-theme input {
+    background-color: black;
+    border-color: var(--border-color-dark);
+    caret-color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+input:focus {
+    outline: none;
+    border: 1px solid #007bff;
+}
+#submitLabel {
+    display: flex;
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+body.dark-theme #submitLabel {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+#submitLabel:active {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+}
+body.dark-theme #submitLabel:active {
+    background-color: black;
+    color: var(--text-color-light);
+}
+#submitLabel:hover {
+    cursor: pointer;
+}
+#felvetel {
+    display: none;
+}

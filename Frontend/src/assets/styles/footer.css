@@ -1,0 +1,36 @@
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+}
+.div-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cardbg-color-light);
+    padding: 10px;
+    border-top: 1px solid var(--border-color-light);
+    bottom: 0px;
+    position: static;
+    height: 10vh;
+    color: var(--text-color-light);
+}
+body.dark-theme .div-footer{
+    background-color: var(--cardbg-color-dark);
+    border: 1px solid var(--border-color-dark);
+    transition: background-color 0.3s;
+}
+p {
+    font-size: 1.5rem;
+    color: var(--text-color-light);
+}
+body.dark-theme p {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}

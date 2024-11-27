@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+body {
+    font-family: Poppins, sans-serif;
+    transition: background-color 0.3s;
+}
+.wrapper-box{
+    margin-top: 0;
+    padding-top: 70px;
+    background-color: var(--bg-color-light);
+}
+body.dark-theme .wrapper-box {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s
+}
+h1 {
+    font-size: 3rem;
+    color: var(--text-color-light);
+}
+body.dark-theme h1{
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+    width: 30vw;
+    margin: auto;
+    position: sticky;
+    z-index: 10;
+    top: 0px;
+}
+#searchInput{
+    position: relative;
+    width: 30vw;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--cardbg-color-light);
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    caret-color: var(--text-color-light);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+body.dark-theme #searchInput {
+    background-color: black;
+    border-color: var(--border-color-dark);
+    caret-color: #ced4da;
+    transition: background-color 0.3s;
+}
+#searchInput:focus {
+    outline: none;
+}
+#searchIcon{
+    position: relative;
+    right: 40px;
+    top: 0px;
+    color: var(--text-color-light);
+}
+body.dark-theme #searchIcon {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.sort{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 50px;
+    width: 100vw;
+}
+select {
+    width: auto;
+    flex-basis: 1;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    padding: 10px;
+    font-size: 1rem;
+    caret-color: #b00000;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    margin-inline: 5px;
+    z-index: 0;
+    background-color: var(--bg-color-light);
+}
+body.dark-theme select {
+    background-color: var(--bg-color-dark);
+    border-color: #555;
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+select:focus {
+    outline: none;
+}
+#upArrow,#downArrow{
+    color: var(--cardbg-color-dark);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+body.dark-theme #upArrow,body.dark-theme #downArrow {
+    color: var(--cardbg-color-light);
+    transition: background-color 0.3s;
+}
+#upArrow :hover,#downArrow :hover{
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    margin-bottom: 20px;
+}
+.card {
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    width: 300px;
+    max-width: 300px;
+    margin: 10px;
+}
+body.dark-theme .card {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.card-content {
+    padding: 10px;
+}
+.card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-color-light);
+}
+body.dark-theme .card h2 {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.card h3 {
+    color: var(--text-color-light);
+}
+body.dark-theme .card h3 {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.card p {
+    font-size: 1rem;
+    color: var(--text-color-light);
+}
+body.dark-theme .card p {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+.card #deleteButton {
+    background-color: #b00000;
+    display: block;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.card #editButton {
+    background-color: rgb(0, 87, 174);
+    display: block;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+.card #editButton:hover {
+    background-color: rgb(0, 70, 140);
+}
+.card #deleteButton:hover {
+    background-color: #800000;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 50px;
+    width: 30vw;
+    margin: -10px 0 40px 0;
+}
+.pagination p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+    margin: 0 10px 0 10px;
+}
+body.dark-theme .pagination p {
+    color: var(--text-color-dark);
+}
+#leftArrow, #rightArrow {
+    color: var(--cardbg-color-dark);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+body.dark-theme #leftArrow, body.dark-theme #rightArrow {
+    color: var(--cardbg-color-light);
+}
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+}
+table {
+    width: 100%;
+    border: 1px solid var(--cardbg-color-light);
+    text-align: center;
+    margin-bottom: 20px;
+}
+body.dark-theme table {
+    border: 1px solid #333;
+    transition: background-color 0.3s;
+}
+thead {
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+    font-size: 1.2rem;
+    padding: 10px 10px;
+    width: auto;
+    text-align: center;
+}
+body.dark-theme thead {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+td{
+    padding: 20px 10px;
+}
+tr {
+    padding: 20px 10px;
+    text-align: center;
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+}
+body.dark-theme tr {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+    color: var(--text-color-light);
+}
+body.dark-theme tbody tr:nth-child(odd) {
+    background-color: #555;
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
