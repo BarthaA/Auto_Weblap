@@ -52,27 +52,27 @@ app.get('/cars/:id', async (req, res) => {
 
 app.post('/cars', async (req, res) => {
     try {
-        const { Brand, Model, Fuel, Power, Price } = req.body;
+        const { brand, model, fuel, power, price } = req.body;
 
-        if (!Brand || Brand.length < 1) {
+        if (!brand || typeof brand !== 'string' || brand.length < 1) {
             return res.status(400).json({ error: "Car brand (Brand) must have at least 1 character" });
         }
-        if (!Model || Model.length < 1) {
+        if (!model || typeof model !== 'string' || model.length < 1) {
             return res.status(400).json({ error: "Car model (Model) must have at least 1 character" });
         }
-        if (isNaN(Price) || Price <= 0) {
-            return res.status(400).json({ error: "Car price (Price) must be a valid number greater than 0" });
+        if (!fuel || typeof fuel !== 'string' || fuel.length < 1) {
+            return res.status(400).json({ error: "Car fuel type (Fuel) must have at least 1 character" });
         }
-        if (isNaN(Fuel) || Fuel <= 0) {
-            return res.status(400).json({ error: "Car fuel type (Fuel) must be a valid number greater than 0" });
-        }
-        if (isNaN(Power) || Power <= 0) {
+        if (isNaN(power) || power <= 0) {
             return res.status(400).json({ error: "Car power (Power) must be a valid number greater than 0" });
         }
+        if (isNaN(price) || price <= 0) {
+            return res.status(400).json({ error: "Car price (Price) must be a valid number greater than 0" });
+        }
 
-        const [result] = await db.query(
+        await db.query(
             'INSERT INTO autok (brand, model, fuel, power, price) VALUES (?, ?, ?, ?, ?)',
-            [Brand, Model, Fuel, Power, Price]
+            [brand, model, fuel, power, price]
         );
 
         res.status(200).json({ message: 'Car successfully added!' });

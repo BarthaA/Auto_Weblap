@@ -84,11 +84,11 @@ body.dark-theme #submitLabel {
 }
 #submitLabel:active {
     background-color: var(--cardbg-color-dark);
-    color: var(--text-color-dark);
+    color: var(--text-color-light);
 }
 body.dark-theme #submitLabel:active {
     background-color: black;
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
 }
 #submitLabel:hover {
     cursor: pointer;

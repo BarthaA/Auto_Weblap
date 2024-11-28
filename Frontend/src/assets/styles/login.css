@@ -66,7 +66,7 @@ body.dark-theme .input {
     font-weight: 700;
     font-size: 1.3rem;
 }
-body.dark-theme #submit {
+body.dark-theme .submit-button {
     background-color: var(--cardbg-color-dark);
     filter: drop-shadow(var(--shadow-dark));
     color: var(--text-color-dark);
