@@ -46,13 +46,14 @@ body.dark-theme h1{
 }
 #searchInput{
     position: relative;
-    width: 30vw;
+    width: inherit;
     height: 40px;
     border-radius: 10px;
     border: 1px solid var(--cardbg-color-light);
     margin: 10px;
     padding: 10px;
     font-size: 1rem;
+    transform: translateX(2%);
     color: var(--text-color-light);
     caret-color: var(--text-color-light);
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
@@ -69,7 +70,7 @@ body.dark-theme #searchInput {
 }
 #searchIcon{
     position: relative;
-    right: 40px;
+    right: 30px;
     top: 0px;
     color: var(--text-color-light);
 }

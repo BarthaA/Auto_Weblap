@@ -101,3 +101,6 @@ body.dark-theme a {
 a:hover {
     color: #007bff;
 }
+body.dark-theme a:hover {
+    color: #007bff;
+}
