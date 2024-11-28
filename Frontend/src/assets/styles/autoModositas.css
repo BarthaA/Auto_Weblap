@@ -11,6 +11,15 @@
     --shadow-dark: rgba(255, 255, 255, 0.1);
 }
 
+input {
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+}
+body.dark-theme input {
+    background-color: black;
+    color: var(--text-color-dark);
+}
+
 #edit-label {
     width: 300px;
     height: 55px;

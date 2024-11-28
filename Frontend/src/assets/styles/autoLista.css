@@ -146,6 +146,7 @@ body.dark-theme #upArrow,body.dark-theme #downArrow {
     width: 300px;
     max-width: 300px;
     margin: 10px;
+    order: 0;
 }
 body.dark-theme .card {
     background-color: var(--cardbg-color-dark);

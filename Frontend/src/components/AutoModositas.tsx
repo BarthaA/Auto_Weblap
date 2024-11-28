@@ -66,7 +66,7 @@ const AutoModiTest = () => {
                 });
         }
     };
-    
+
 
     if (loading) {
         return <p>Loading car data...</p>;

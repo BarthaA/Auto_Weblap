@@ -66,8 +66,10 @@ const AutoLista = () => {
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);
+            const startIndex = (page - 1) * 15;
+            const endIndex = startIndex + 15;
+            setFilteredCars(allCars.slice(startIndex, endIndex));
         }
-        fetchCars(page);
     };
 
     const handleDelete = async (id: number) => {
@@ -114,12 +116,15 @@ const AutoLista = () => {
     };
 
     const sortCars = (key: keyof Car, direction: "asc" | "desc") => {
-        const sortedCars = [...filteredCars].sort((a, b) => {
+        const sortedCars = [...allCars].sort((a, b) => {
             if (a[key] < b[key]) return direction === "asc" ? -1 : 1;
             if (a[key] > b[key]) return direction === "asc" ? 1 : -1;
             return 0;
         });
-        setFilteredCars(sortedCars);
+        setAllCars(sortedCars);
+        const startIndex = (currentPage - 1) * 15;
+        const endIndex = startIndex + 15;
+        setFilteredCars(sortedCars.slice(startIndex, endIndex));
         setSortConfig({ key, direction });
     };
 
@@ -167,11 +172,11 @@ const AutoLista = () => {
                             }
                         />
                         <select name="sortSelect" id="sortSelect">
-                            <option value="Brand">Márka</option>
-                            <option value="Model">Model</option>
-                            <option value="Fuel">Üzemanyag</option>
-                            <option value="Power">Teljesítmény</option>
-                            <option value="Price">Ár</option>
+                            <option value="brand">Márka</option>
+                            <option value="model">Model</option>
+                            <option value="fuel">Üzemanyag</option>
+                            <option value="power">Teljesítmény</option>
+                            <option value="price">Ár</option>
                         </select>
                         <FaArrowAltCircleDown
                             id="downArrow"
@@ -195,9 +200,15 @@ const AutoLista = () => {
                                     <div className="card-content">
                                         <h2>{car.brand}</h2>
                                         <h3>{car.model}</h3>
-                                        <p>Üzemanyag: <b>{car.fuel}</b></p>
-                                        <p>Teljesítmény: <b>{car.power} HP</b></p>
-                                        <p>Ár: <b>{car.price} Ft</b>.</p>
+                                        <p>
+                                            Üzemanyag: <b>{car.fuel}</b>
+                                        </p>
+                                        <p>
+                                            Teljesítmény: <b>{car.power} HP</b>
+                                        </p>
+                                        <p>
+                                            Ár: <b>{car.price} Ft</b>.
+                                        </p>
                                         <a href={`/automodositas/${car.id}`}>
                                             <button id="editButton">
                                                 Módosítás

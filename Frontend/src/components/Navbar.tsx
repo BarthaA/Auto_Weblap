@@ -1,12 +1,21 @@
 import { CgDarkMode } from "react-icons/cg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        const savedMode = localStorage.getItem("darkMode");
+        return savedMode ? JSON.parse(savedMode) : false;
+    });
+
+    useEffect(() => {
+        document.body.classList.toggle("dark-theme", isDarkMode);
+        localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+    }, [isDarkMode]);
+
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
-        document.body.classList.toggle("dark-theme", !isDarkMode);
     };
+
     return (
         <>
             <nav>

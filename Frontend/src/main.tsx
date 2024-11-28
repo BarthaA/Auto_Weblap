@@ -7,8 +7,7 @@ import AutoLista from "./components/AutoLista";
 import AutoFelvetel from "./components/AutoFelvetel";
 import AutoFooldal from "./components/AutoFooldal";
 import LoginPage from "./components/LoginPage";
-//import AutoModositas from "./components/AutoModositas";
-import AutoModiTest from "./components/AutoModiTest";
+import AutoModiTest from "./components/AutoModositas";
 
 const router = createBrowserRouter([
     {
