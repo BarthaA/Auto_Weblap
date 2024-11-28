@@ -106,26 +106,35 @@ app.post("/login", (req, res) => {
     }
 });
 
-app.put("/cars/:id", (req, res) => {
+app.put("/cars/:id", async (req, res) => {
     const { id } = req.params;
-    const {
-      Brand,
-      Model,
-      Fuel,
-      Power,
-      Price
-    } = req.body;
-  
-    db.query(
-      `UPDATE autok SET Brand = ?, Model = ?, Fuel = ?, Power = ?, 
-       Price = ? WHERE id = ?`,
-      [Brand, Model, Fuel, Power, Price, id],
-      (err) => {
-        if (err) return res.status(500).json(err);
+    const { Brand, Model, Fuel, Power, Price } = req.body;
+
+    try {
+        const [currentCar] = await db.query("SELECT * FROM autok WHERE id = ?", [id]);
+        if (!currentCar.length) {
+            return res.status(404).json({ error: "Car not found" });
+        }
+
+        const updatedCar = {
+            Brand: Brand ?? currentCar[0].Brand,
+            Model: Model ?? currentCar[0].Model,
+            Fuel: Fuel ?? currentCar[0].Fuel,
+            Power: Power ?? currentCar[0].Power,
+            Price: Price ?? currentCar[0].Price,
+        };
+
+        await db.query(
+            `UPDATE autok SET Brand = ?, Model = ?, Fuel = ?, Power = ?, Price = ? WHERE id = ?`,
+            [updatedCar.Brand, updatedCar.Model, updatedCar.Fuel, updatedCar.Power, updatedCar.Price, id]
+        );
+
         res.json({ message: "Car updated successfully" });
-      }
-    );
-  });
+    } catch (error) {
+        console.error("Error updating car:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
 
 app.listen(3005, () => {
     console.log('Server is running on port 3005');

@@ -53,12 +53,14 @@ body.dark-theme h1{
     margin: 10px;
     padding: 10px;
     font-size: 1rem;
+    color: var(--text-color-light);
     caret-color: var(--text-color-light);
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
 }
 body.dark-theme #searchInput {
     background-color: black;
     border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
     caret-color: #ced4da;
     transition: background-color 0.3s;
 }

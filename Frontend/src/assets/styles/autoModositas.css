@@ -1,0 +1,44 @@
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: #202020;
+    --text-color-light: #333;
+    --text-color-dark: #f8f9f9;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #555;
+    --cardbg-color-light: #d0d0d0;
+    --cardbg-color-dark: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+
+#edit-label {
+    width: 300px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--cardbg-color-light);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    filter: drop-shadow(var(--shadow-light));
+    margin-top: 10px;
+    padding: .7rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+body.dark-theme #edit-label {
+    background-color: var(--cardbg-color-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s;
+}
+#edit-label:hover {
+    cursor: pointer;
+}
+#edit-label:active {
+    background-color: var(--cardbg-color-dark);
+    color: var(--text-color-dark);
+}
+body.dark-theme #edit-label:active {
+    background-color: black;
+    color: var(--text-color-dark);
+}

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
+import '../assets/styles/autoModositas.css';
 
 interface Car {
     id: number;
@@ -17,15 +18,16 @@ const AutoModiTest = () => {
     const { id } = useParams<{ id: string }>();
     const [currentCar, setCurrentCar] = useState<Car | null>(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios
             .get(`http://localhost:3005/cars/${id}`)
-            .then((response) => {
+            .then((response: { data: Car }) => {
                 setCurrentCar(response.data);
                 setLoading(false);
             })
-            .catch((error) => {
+            .catch((error: Error) => {
                 console.error("Error fetching car data:", error);
                 setLoading(false);
             });
@@ -36,10 +38,7 @@ const AutoModiTest = () => {
             const { name, value } = e.target;
             setCurrentCar({
                 ...currentCar,
-                [name]:
-                    name === "power" || name === "price"
-                        ? parseInt(value)
-                        : value,
+                [name]: name === "power" || name === "price" ? parseInt(value) : value,
             });
         }
     };
@@ -47,16 +46,27 @@ const AutoModiTest = () => {
     const handleEdit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (currentCar) {
+            const updatedCar = {
+                Brand: currentCar.brand || "",
+                Model: currentCar.model || "",
+                Fuel: currentCar.fuel || "",
+                Power: currentCar.power || 0,
+                Price: currentCar.price || 0,
+            };
+    
             axios
-                .put(`http://localhost:3005/cars/${currentCar.id}`, currentCar)
+                .put(`http://localhost:3005/cars/${currentCar.id}`, updatedCar)
                 .then(() => {
-                    alert("Car updated successfully!");
+                    console.log("Car updated successfully!");
+                    /* alert("Car updated successfully!"); */ //Ez a szar ketszer fut le
+                    navigate("/autolista");
                 })
                 .catch((err) => {
                     console.error("Error updating car:", err);
                 });
         }
     };
+    
 
     if (loading) {
         return <p>Loading car data...</p>;
@@ -123,7 +133,11 @@ const AutoModiTest = () => {
                             required
                         />
                         <br />
-                        <label htmlFor="modosit">Módosítás</label>
+                        <label
+                            htmlFor="modosit"
+                            id="edit-label"
+                            onClick={() => document.getElementById('modosit')?.click()}
+                            >Módosítás</label>
                         <button
                             id="modosit"
                             type="submit"
